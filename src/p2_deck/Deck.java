@@ -27,6 +27,7 @@ import p1_cards.PlusTwoCard;
 import p1_cards.ReverseCard;
 import p1_cards.SkipCard;
 import p1_cards.Card;
+import p1_cards.Color;
 
 public class Deck implements Serializable{
 	
@@ -42,11 +43,8 @@ public class Deck implements Serializable{
 		size = 108;
 		deck = new ArrayList<>();
 		reshufflePile = new ArrayList<>();
-//		if (Files.exists(Paths.get("./deck.dat"))) {
-//			loadDeck();
-//		} else {
-			createDeck();
 		
+		createDeck();		
 	}
 	
 	public static Deck getInstance() {
@@ -69,16 +67,19 @@ public class Deck implements Serializable{
 		return deck;
 	}
 	
-	public void returnCard(Card card) {
-		reshufflePile.add(card);
-	}
-	
 	public Card getCard() {
+		if (size == 0) {
+			reshuffleDeck();
+		}
 		return deck.remove((int)(Math.random()*size--));
 	}
 	
 	public int getSize() {
 		return size;
+	}
+	
+	public void returnCard(Card card) {
+		reshufflePile.add(card);
 	}
 	
 	public void dealCards(PlayerHand hand) {
@@ -157,134 +158,134 @@ public class Deck implements Serializable{
 		
 		for (int i = 0; i<=9; i++) {
 			if (i==0) {
-				deck.add(new Card(new Number0Card(), "Red"));
-				deck.add(new Card(new Number0Card(), "Yellow"));
-				deck.add(new Card(new Number0Card(), "Green"));
-				deck.add(new Card(new Number0Card(), "Blue"));
+				deck.add(new Card(new Number0Card(), Color.RED));
+				deck.add(new Card(new Number0Card(), Color.YELLOW));
+				deck.add(new Card(new Number0Card(), Color.GREEN));
+				deck.add(new Card(new Number0Card(), Color.BLUE));
 
 			} else if (i==1) {
-				deck.add(new Card(new Number1Card(), "Red"));
-				deck.add(new Card(new Number1Card(), "Yellow"));
-				deck.add(new Card(new Number1Card(), "Green"));
-				deck.add(new Card(new Number1Card(), "Blue"));
-				deck.add(new Card(new Number1Card(), "Red"));
-				deck.add(new Card(new Number1Card(), "Yellow"));
-				deck.add(new Card(new Number1Card(), "Green"));
-				deck.add(new Card(new Number1Card(), "Blue"));
+				deck.add(new Card(new Number1Card(), Color.RED));
+				deck.add(new Card(new Number1Card(), Color.YELLOW));
+				deck.add(new Card(new Number1Card(), Color.GREEN));
+				deck.add(new Card(new Number1Card(), Color.BLUE));
+				deck.add(new Card(new Number1Card(), Color.RED));
+				deck.add(new Card(new Number1Card(), Color.YELLOW));
+				deck.add(new Card(new Number1Card(), Color.GREEN));
+				deck.add(new Card(new Number1Card(), Color.BLUE));
 			} else if (i==2) {
-				deck.add(new Card(new Number2Card(), "Red"));
-				deck.add(new Card(new Number2Card(), "Yellow"));
-				deck.add(new Card(new Number2Card(), "Green"));
-				deck.add(new Card(new Number2Card(), "Blue"));
-				deck.add(new Card(new Number2Card(), "Red"));
-				deck.add(new Card(new Number2Card(), "Yellow"));
-				deck.add(new Card(new Number2Card(), "Green"));
-				deck.add(new Card(new Number2Card(), "Blue"));
+				deck.add(new Card(new Number2Card(), Color.RED));
+				deck.add(new Card(new Number2Card(), Color.YELLOW));
+				deck.add(new Card(new Number2Card(), Color.GREEN));
+				deck.add(new Card(new Number2Card(), Color.BLUE));
+				deck.add(new Card(new Number2Card(), Color.RED));
+				deck.add(new Card(new Number2Card(), Color.YELLOW));
+				deck.add(new Card(new Number2Card(), Color.GREEN));
+				deck.add(new Card(new Number2Card(), Color.BLUE));
 			} else if (i==3) {
-				deck.add(new Card(new Number3Card(), "Red"));
-				deck.add(new Card(new Number3Card(), "Yellow"));
-				deck.add(new Card(new Number3Card(), "Green"));
-				deck.add(new Card(new Number3Card(), "Blue"));
-				deck.add(new Card(new Number3Card(), "Red"));
-				deck.add(new Card(new Number3Card(), "Yellow"));
-				deck.add(new Card(new Number3Card(), "Green"));
-				deck.add(new Card(new Number3Card(), "Blue"));
+				deck.add(new Card(new Number3Card(), Color.RED));
+				deck.add(new Card(new Number3Card(), Color.YELLOW));
+				deck.add(new Card(new Number3Card(), Color.GREEN));
+				deck.add(new Card(new Number3Card(), Color.BLUE));
+				deck.add(new Card(new Number3Card(), Color.RED));
+				deck.add(new Card(new Number3Card(), Color.YELLOW));
+				deck.add(new Card(new Number3Card(), Color.GREEN));
+				deck.add(new Card(new Number3Card(), Color.BLUE));
 			} else if (i==4) {
-				deck.add(new Card(new Number4Card(), "Red"));
-				deck.add(new Card(new Number4Card(), "Yellow"));
-				deck.add(new Card(new Number4Card(), "Green"));
-				deck.add(new Card(new Number4Card(), "Blue"));
-				deck.add(new Card(new Number4Card(), "Red"));
-				deck.add(new Card(new Number4Card(), "Yellow"));
-				deck.add(new Card(new Number4Card(), "Green"));
-				deck.add(new Card(new Number4Card(), "Blue"));
+				deck.add(new Card(new Number4Card(), Color.RED));
+				deck.add(new Card(new Number4Card(), Color.YELLOW));
+				deck.add(new Card(new Number4Card(), Color.GREEN));
+				deck.add(new Card(new Number4Card(), Color.BLUE));
+				deck.add(new Card(new Number4Card(), Color.RED));
+				deck.add(new Card(new Number4Card(), Color.YELLOW));
+				deck.add(new Card(new Number4Card(), Color.GREEN));
+				deck.add(new Card(new Number4Card(), Color.BLUE));
 			} else if (i==5) {
-				deck.add(new Card(new Number5Card(), "Red"));
-				deck.add(new Card(new Number5Card(), "Yellow"));
-				deck.add(new Card(new Number5Card(), "Green"));
-				deck.add(new Card(new Number5Card(), "Blue"));
-				deck.add(new Card(new Number5Card(), "Red"));
-				deck.add(new Card(new Number5Card(), "Yellow"));
-				deck.add(new Card(new Number5Card(), "Green"));
-				deck.add(new Card(new Number5Card(), "Blue"));
+				deck.add(new Card(new Number5Card(), Color.RED));
+				deck.add(new Card(new Number5Card(), Color.YELLOW));
+				deck.add(new Card(new Number5Card(), Color.GREEN));
+				deck.add(new Card(new Number5Card(), Color.BLUE));
+				deck.add(new Card(new Number5Card(), Color.RED));
+				deck.add(new Card(new Number5Card(), Color.YELLOW));
+				deck.add(new Card(new Number5Card(), Color.GREEN));
+				deck.add(new Card(new Number5Card(), Color.BLUE));
 			} else if (i==6) {
-				deck.add(new Card(new Number6Card(), "Red"));
-				deck.add(new Card(new Number6Card(), "Yellow"));
-				deck.add(new Card(new Number6Card(), "Green"));
-				deck.add(new Card(new Number6Card(), "Blue"));
-				deck.add(new Card(new Number6Card(), "Red"));
-				deck.add(new Card(new Number6Card(), "Yellow"));
-				deck.add(new Card(new Number6Card(), "Green"));
-				deck.add(new Card(new Number6Card(), "Blue"));
+				deck.add(new Card(new Number6Card(), Color.RED));
+				deck.add(new Card(new Number6Card(), Color.YELLOW));
+				deck.add(new Card(new Number6Card(), Color.GREEN));
+				deck.add(new Card(new Number6Card(), Color.BLUE));
+				deck.add(new Card(new Number6Card(), Color.RED));
+				deck.add(new Card(new Number6Card(), Color.YELLOW));
+				deck.add(new Card(new Number6Card(), Color.GREEN));
+				deck.add(new Card(new Number6Card(), Color.BLUE));
 			} else if (i==7) {
-				deck.add(new Card(new Number7Card(), "Red"));
-				deck.add(new Card(new Number7Card(), "Yellow"));
-				deck.add(new Card(new Number7Card(), "Green"));
-				deck.add(new Card(new Number7Card(), "Blue"));
-				deck.add(new Card(new Number7Card(), "Red"));
-				deck.add(new Card(new Number7Card(), "Yellow"));
-				deck.add(new Card(new Number7Card(), "Green"));
-				deck.add(new Card(new Number7Card(), "Blue"));
+				deck.add(new Card(new Number7Card(), Color.RED));
+				deck.add(new Card(new Number7Card(), Color.YELLOW));
+				deck.add(new Card(new Number7Card(), Color.GREEN));
+				deck.add(new Card(new Number7Card(), Color.BLUE));
+				deck.add(new Card(new Number7Card(), Color.RED));
+				deck.add(new Card(new Number7Card(), Color.YELLOW));
+				deck.add(new Card(new Number7Card(), Color.GREEN));
+				deck.add(new Card(new Number7Card(), Color.BLUE));
 			} else if (i==8) {
-				deck.add(new Card(new Number8Card(), "Red"));
-				deck.add(new Card(new Number8Card(), "Yellow"));
-				deck.add(new Card(new Number8Card(), "Green"));
-				deck.add(new Card(new Number8Card(), "Blue"));
-				deck.add(new Card(new Number8Card(), "Red"));
-				deck.add(new Card(new Number8Card(), "Yellow"));
-				deck.add(new Card(new Number8Card(), "Green"));
-				deck.add(new Card(new Number8Card(), "Blue"));
+				deck.add(new Card(new Number8Card(), Color.RED));
+				deck.add(new Card(new Number8Card(), Color.YELLOW));
+				deck.add(new Card(new Number8Card(), Color.GREEN));
+				deck.add(new Card(new Number8Card(), Color.BLUE));
+				deck.add(new Card(new Number8Card(), Color.RED));
+				deck.add(new Card(new Number8Card(), Color.YELLOW));
+				deck.add(new Card(new Number8Card(), Color.GREEN));
+				deck.add(new Card(new Number8Card(), Color.BLUE));
 			} else if (i==9) {
-				deck.add(new Card(new Number9Card(), "Red"));
-				deck.add(new Card(new Number9Card(), "Yellow"));
-				deck.add(new Card(new Number9Card(), "Green"));
-				deck.add(new Card(new Number9Card(), "Blue"));
-				deck.add(new Card(new Number9Card(), "Red"));
-				deck.add(new Card(new Number9Card(), "Yellow"));
-				deck.add(new Card(new Number9Card(), "Green"));
-				deck.add(new Card(new Number9Card(), "Blue"));
+				deck.add(new Card(new Number9Card(), Color.RED));
+				deck.add(new Card(new Number9Card(), Color.YELLOW));
+				deck.add(new Card(new Number9Card(), Color.GREEN));
+				deck.add(new Card(new Number9Card(), Color.BLUE));
+				deck.add(new Card(new Number9Card(), Color.RED));
+				deck.add(new Card(new Number9Card(), Color.YELLOW));
+				deck.add(new Card(new Number9Card(), Color.GREEN));
+				deck.add(new Card(new Number9Card(), Color.BLUE));
 			}
 		}
 		
 		//swap 4 
 		for (int i = 0; i<4; i++) {
-			deck.add(new Card(new PlusFourCard(), null));
+			deck.add(new Card(new PlusFourCard(), Color.BLACK));
 		}
 		
 		//swap
 		for (int i = 0; i<4; i++) {
-			deck.add(new Card(new ColorSwapCard(), null));
+			deck.add(new Card(new ColorSwapCard(), Color.BLACK));
 		}
 		
 		//skip
-		deck.add(new Card(new SkipCard(), "Red"));
-		deck.add(new Card(new SkipCard(), "Red"));
-		deck.add(new Card(new SkipCard(), "Yellow"));
-		deck.add(new Card(new SkipCard(), "Yellow"));
-		deck.add(new Card(new SkipCard(), "Green"));
-		deck.add(new Card(new SkipCard(), "Green"));
-		deck.add(new Card(new SkipCard(), "Blue"));
-		deck.add(new Card(new SkipCard(), "Blue"));
+		deck.add(new Card(new SkipCard(), Color.RED));
+		deck.add(new Card(new SkipCard(), Color.RED));
+		deck.add(new Card(new SkipCard(), Color.YELLOW));
+		deck.add(new Card(new SkipCard(), Color.YELLOW));
+		deck.add(new Card(new SkipCard(), Color.GREEN));
+		deck.add(new Card(new SkipCard(), Color.GREEN));
+		deck.add(new Card(new SkipCard(), Color.BLUE));
+		deck.add(new Card(new SkipCard(), Color.BLUE));
 		
 		//reverse
-		deck.add(new Card(new ReverseCard(), "Red"));
-		deck.add(new Card(new ReverseCard(), "Red"));
-		deck.add(new Card(new ReverseCard(), "Yellow"));
-		deck.add(new Card(new ReverseCard(), "Yellow"));
-		deck.add(new Card(new ReverseCard(), "Green"));
-		deck.add(new Card(new ReverseCard(), "Green"));
-		deck.add(new Card(new ReverseCard(), "Blue"));
-		deck.add(new Card(new ReverseCard(), "Blue"));
+		deck.add(new Card(new ReverseCard(), Color.RED));
+		deck.add(new Card(new ReverseCard(), Color.RED));
+		deck.add(new Card(new ReverseCard(), Color.YELLOW));
+		deck.add(new Card(new ReverseCard(), Color.YELLOW));
+		deck.add(new Card(new ReverseCard(), Color.GREEN));
+		deck.add(new Card(new ReverseCard(), Color.GREEN));
+		deck.add(new Card(new ReverseCard(), Color.BLUE));
+		deck.add(new Card(new ReverseCard(), Color.BLUE));
 		
 		//+2
-		deck.add(new Card(new PlusTwoCard(), "Red"));
-		deck.add(new Card(new PlusTwoCard(), "Red"));
-		deck.add(new Card(new PlusTwoCard(), "Yellow"));
-		deck.add(new Card(new PlusTwoCard(), "Yellow"));
-		deck.add(new Card(new PlusTwoCard(), "Green"));
-		deck.add(new Card(new PlusTwoCard(), "Green"));
-		deck.add(new Card(new PlusTwoCard(), "Blue"));
-		deck.add(new Card(new PlusTwoCard(), "Blue"));
+		deck.add(new Card(new PlusTwoCard(), Color.RED));
+		deck.add(new Card(new PlusTwoCard(), Color.RED));
+		deck.add(new Card(new PlusTwoCard(), Color.YELLOW));
+		deck.add(new Card(new PlusTwoCard(), Color.YELLOW));
+		deck.add(new Card(new PlusTwoCard(), Color.GREEN));
+		deck.add(new Card(new PlusTwoCard(), Color.GREEN));
+		deck.add(new Card(new PlusTwoCard(), Color.BLUE));
+		deck.add(new Card(new PlusTwoCard(), Color.BLUE));
 			
 	}
 

@@ -9,10 +9,12 @@ public class PlayerHand {
 	
 	private ArrayList<Card> hand;
 	private int size;
+	private boolean isPlayable;
 	
 	public PlayerHand() {
 		hand = new ArrayList<>();
 		size = 0;
+		isPlayable = false;
 	}
 
 	public ArrayList<Card> getHand() {
@@ -23,9 +25,9 @@ public class PlayerHand {
 		return size;
 	}
 	
-	public Card chooseCard(int cardIdx) {
+	public Card chooseCard(int idx) {
 		size--;
-		return hand.remove(cardIdx-1);
+		return hand.remove(idx);
 	}
 	
 	public Card getCard(int idx) {
@@ -35,6 +37,14 @@ public class PlayerHand {
 	public void addCard(Card card) {
 		hand.add(card);
 		size++;
+	}
+
+	public boolean isPlayable() {
+		return isPlayable;
+	}
+
+	public void setIsPlayable(boolean isPlayable) {
+		this.isPlayable = isPlayable;
 	}
 
 	@Override
